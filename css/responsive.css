@@ -1,0 +1,866 @@
+/*――――――――――――――――――――――――――――――
+
+  レスポンシブ：SP (max-width: 767px)
+
+――――――――――――――――――――――――――――――*/
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 80%;
+  }
+
+  #header {
+    height: 80px;               /* 高さを小さく */
+    padding: 0 20px;            /* 横パディングを狭く */
+    letter-spacing: 0.05rem;    /* 文字間をやや狭く */
+  }
+  /* ロゴ周り */
+  .logo a {
+    width: 80px;   /* ロゴ全体の横幅を縮小 */
+    height: 80px;  /* ロゴ全体の高さを縮小 */
+  }
+  .logo-text {
+    font-size: 1.2rem;  /* テキストサイズを調整 */
+    padding-left: 20px; /* ロゴ画像との余白を縮小 */
+    filter: drop-shadow(0 0 8px rgba(246, 246, 246, 0.5));
+  }
+
+  .hamburger {
+    display: flex;   /* 通常は非表示だったハンバーガーを表示 */
+  }
+    /* ナビゲーション（初期は非表示、.active で表示） */
+  .navi ul {
+    flex-direction: column;
+    position: fixed;
+    top: 80px;      /* ヘッダー下に配置 */
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    padding: 0;                /* ←paddingを0にして内側余白は li 側で取り直す */
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+    height: 100vh;             /* メニュー内だけ縦スクロールできるように */
+    overflow-y: auto;
+  }
+
+ .navi ul.active {
+    transform: translateX(0);
+  }
+
+.navi ul li {
+    display: flex;            /* Flexbox 化 */
+    justify-content: center;  /* 中央寄せ */
+    width: 100%;
+    padding: 8px 0;           /* 上下だけ余白 */
+    margin-bottom: 2px;       /* 項目間に隙間 */
+  }
+  .navi ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  .navi ul li a {
+    display: flex;            /* 内部も Flexbox にして中央揃え */
+    justify-content: center;  /* 中央にアイコン／テキスト */
+    align-items: center;      /* 高さ方向にも中央 */
+    width: 100%;              /* 幅いっぱいに伸ばす */
+    font-size: 1rem;
+    padding: 4px 0;           /* リンク内上下余白 */
+    color: goldenrod;         /* 必要に応じてリンク色 */
+    text-decoration: none;
+  }
+ .navi ul li a:hover {
+    background-color: #9F7916;
+    color: #fff;
+  }
+
+  .uber-eats-btn {
+    display: flex;            /* Flexbox にして中の SVG＋テキストを中央に */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4px 0;           /* 内側余白を上下だけ確保 */
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    background: none;         /* 背景色は hover 時の色を入れるならここで追加 */
+  }
+  .uber-eats-btn svg {
+    width: 48px;  /* SP 用にサイズを少し落とす */
+    height: auto;
+    transition: all 0.5s ease;
+  }
+  .uber-eats-btn:hover {
+    background-color: #9F7916; /* hover 時の背景色 */
+  }
+  .hover-text {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  #page-top {
+   display: none;
+  }
+
+   /* それ以外のスマホ用スタイル */
+  .mainvisual {
+    padding-top: 60%;
+  }
+  .mv__background-l {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .mv__background-r {
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .mv__text__inner {
+    width: 80%;
+    padding-left: 10px;
+  }
+ .mv__title {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+  }
+  .mv__subtitle {
+    font-size: 4rem;
+  }
+  /* フェードスライドの画像も高さを合わせる */
+  .mainvisual .fade-img li img {
+    object-position: center top;
+  }
+
+    /* ナビ内のアイコンサイズ */
+  .header__instagram svg {
+    width: 24px;
+    height: 24px;
+  }
+  .uber-eats-btn {
+    width: 80px;
+    padding: 4px 12px;
+  }
+  .uber-eats-btn svg {
+    width: 48px;
+  }
+  .hover-text {
+    font-size: 12px;
+  }
+
+  .parallax {
+    background-attachment: scroll; /* 固定ではなく通常スクロールに切り替え */
+    height: 250px;
+  }
+  .parallax__content {
+    font-size: 0.9rem;
+  }
+
+  /* about セクション */
+  .about.wrapper {
+  padding: 20px 10px;             /* 上下に余裕を持たせる */
+  background-color: #f9f9f9;
+}
+.about .section-wrapper {
+  max-width: 100%;                /* スマホでは画面いっぱいに広げる */
+  padding: 40px 10px 40px;               
+  margin: 0 auto;
+  text-align: center;              /* 見出し・本文を中央寄せ */
+}
+  /* .about__title {
+    font-size: 1.8rem;
+    
+  }
+  .about__title::after {
+    width: 40px;
+    height: 3px;
+    margin-top: 8px;
+  } */
+  .about__text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 100%;
+    margin-top: 24px;
+    text-align: left; /* スマホは「左揃え」が読みやすい場合もあるので左揃えに変更可能 */
+    padding: 0 10px; /* 画面端から10pxずつ余白を取る */
+  }
+
+  /* photo セクション */
+  .loop_wrap {
+    height: auto;             /* 高さは auto */
+    overflow-x: auto;         /* 横スクロールを許可 */
+    overflow-y: hidden;       /* 縦は隠す */
+    padding-bottom: 10px;     /* スクロールバーが出ても余裕を持たせる */
+  }
+  .loop {
+    display: flex;
+    flex-direction: row;      /* 横並びに維持 */
+    animation: none;          /* 横スライドループをキャンセル */
+    width: auto;              /* 必要に応じて自動幅 */
+  }
+  .loop img {
+    flex-shrink: 0;           /* 画像を縮めずに並べる */
+    width: auto;
+    height: 200px;            /* SP向けは高さを固定して見やすく */
+    margin-right: 8px;        /* 画像間に少しスペース */
+    object-fit: cover;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* menu セクション */
+  .menu.wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  .menu .section-wrapper {
+    padding: 40px 0 20px; /* セクション上下の余白を控えめに */
+  }
+  /* .menu__title {
+    font-size: 1.8rem;
+  }
+  .menu__title::after {
+    width: 40px;
+    height: 3px;
+    margin-top: 8px;
+  } */
+  .menu .img img {
+    width: 100%;
+    max-width: 100%;    /* 画面幅いっぱいに拡大 */
+    height: auto;
+  }
+  /* news セクション */
+  .news.wrapper {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 0;
+  }
+  .news .section-wrapper {
+    padding: 40px 0 20px;  /* セクション上下の余白を控えめに */
+  }
+  .news-title {
+    font-size: 1.8rem;
+  }
+   .news__title::after {
+    width: 40px;
+    height: 3px;
+    margin-top: 8px;
+  }
+  .card-wrap {
+    gap: 16px;
+    margin-top: 24px;
+    align-items: stretch;  /* カードを幅いっぱいにする */
+  }
+  .news-card {
+    width: 100%; 
+    height: 350px;          /* 幅いっぱいに */
+    flex-direction: column;/* 画像 → テキスト の縦並び */
+    align-items: center;
+    padding: 10px 20px;   /* 真ん中寄せ */
+  }
+  .news-card img {
+    width: 100%;
+    max-width: 80%;       /* 画面幅いっぱい */
+    height: 200px;          /* 縦横比を維持 */
+    object-fit: cover;
+    border-radius: 4px 4px 0 0; /* 上側だけ角丸 */
+  }
+  .news-content {
+    padding: 16px;
+    text-align: left;
+  }
+  .news-heading {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .news-text {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  .news-button {
+    width: 20px;
+    font-size: 0.8rem;
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  /* アクセスセクション */
+.access.wrapper {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+  .access .section-wrapper {
+    padding: 60px 20px 40px;
+  }
+  .access__flex {
+    flex-direction: column;
+    gap: 16px; /* カラム間の余白を 16px に */
+  }
+  .access__map iframe {
+    height: 150px; /* SP ではさらに 150px に縮小 */
+  }
+  .access__map-link {
+    text-align: left; /* SPでは左寄せ */
+    margin-top: 6px; /* 8px→6px に縮める */
+  }
+
+  /* footer */
+  #footer {
+    padding: 24px 8px;
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .footer-col {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  /* カラム①：ロゴ + コピーライト */
+  .footer-col--logo {
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .footer-logo-text {
+    font-size: 1.6rem;
+  }
+  .footer-copy {
+    font-size: 0.8rem;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  /* カラム②：住所・連絡先 */
+  .footer-col--info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 4px;
+    padding-top: 0;
+    font-size: 0.75rem;   /* 文字を少し小さめに */
+    line-height: 1.4;     /* 行間をやや詰める */
+  }
+  .footer-col--info .address {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    text-align: left;
+    margin-bottom: 4px;
+  }
+  .footer-col--info p:not(.address) {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75rem;
+    text-align: left;
+  }
+/* カラム③：フッターメニュー */
+  .footer-col--nav .footer-menu {
+    gap: 12px;
+  }
+  .footer-col--nav .footer-menu li a {
+    font-size: 0.75rem;
+  }
+  .footer-menu {
+    flex-direction: row;      /* 横並びに変更 */
+    justify-content: center;
+    gap: 16px;
+    margin-left: 0;
+  }
+  .footer-col--info br.sp-only {
+    display: inline; /* または display: block; でもOK */
+  }
+  
+/* カラム④：SNSリンク */
+  .footer-col--social {
+    margin-bottom: 6px;
+  }
+  .footer-social {
+    gap: 6px;
+  }
+  .footer-social li a {
+    font-size: 0.75rem;
+  }
+  .footer-social svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .burgers-page__title {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+  .burgers-page__title::after {
+    width: 40px; /* 下線の長さを小さく */
+    height: 3px;
+    margin-top: 8px;
+  }
+
+  .burgers-page__grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    
+  }
+  .burger-item {
+    max-width: 160px;
+    margin-top: 30px;
+  }
+  .burger-item__img-wrapper {
+    padding-top: 100%;
+    /* 正方形にする */
+  }
+  .burger-item__name {
+    font-size: 1rem;
+    margin: 8px 0 2px;
+  }
+  .burger-item__price {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  .goods__grid {
+    display: block;
+    margin-top: 30px;
+  }
+  .goods__item,
+  .goods__text {
+
+    margin-bottom: 40px;
+  }
+  .goods__text p{
+    font-size: 1.2rem;
+  }
+  .about__title.privacy {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+  .about__title::after {
+    width: 40px; /* 下線の長さを小さく */
+    height: 3px;
+    margin-top: 8px;
+  }
+  .privacy__text-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 0 10px; /* スマホでは左右に余白を持たせる */
+}
+  .privacy__text-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .privacy__ol {
+  counter-reset: item;       
+  list-style: none;          
+  margin-left: 0;
+  padding-left: 0;
+}
+.privacy__last {
+  text-align: left;
+}
+  .privacy__list {
+    text-align: left;
+    font-size: 1.4rem;
+    padding-left: 1rem;
+  }
+  .privacy__list::before {
+  content: "第" counter(article) "条";
+  position: absolute;
+  font-size: 1.4rem;
+  left: 0;
+}
+  .privacy__list + p {
+    text-align: left;
+  }
+  .privacy__list + p + p{
+    text-align: left;
+  }
+  .privacy__sublist {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  .privacy__sublist__2 {
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 90%;
+  }
+
+  #header {
+    height: 100px;
+    padding: 0 30px;
+  }
+
+  .logo img {
+    height: 100px;
+    padding: 0 15px;
+  }
+
+  .mainvisual {
+    padding-top: 55%;
+  }
+  .mv__background-l,
+  .mv__background-r {
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .mv__text__inner {
+    width: 60%;
+    padding-left: 15px;
+  }
+  .mv__title {
+    font-size: 2.8rem;
+    margin-bottom: 0.4rem;
+  }
+  .mv__subtitle {
+    font-size: 3rem;
+  }
+  .about {
+    padding: 60px 10px;
+  }
+  /* .about .section-wrapper {
+    max-width: 85%;               
+    margin: 0 auto;
+  } */
+  .about__title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .about__title::after {
+    height: 3px;
+    margin-top: 8px;
+  }
+  .about__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 80%; /* タブレットではもう少し広く使う */
+    margin-top: 32px;
+    margin: 0 auto;
+    padding-top: 25px; /* 見出しとの間隔を微調整 */
+  }
+  .photo {
+    padding: 60px 0;
+  }
+  .photo .inner {
+    max-width: 95%;
+  }
+  .loop_wrap {
+    height: 250px;      /* 少し高さを縮小 */
+  }
+  .loop {
+    animation: slide-loop-tablet 40s linear infinite; /* アニメーションをやや速め */
+  }
+  .loop img {
+    height: 100%;
+    /* 画像同士の隙間をなくす場合は margin: 0; */
+  }
+   /* ────────────
+     MENU セクション
+     ──────────── */
+  .menu__title {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+  .menu .img img {
+    max-width: 400px;   /* デスクトップより少し縮小 */
+  }
+
+  /* ────────────
+     NEWS セクション
+     ──────────── */
+  .menu .section-wrapper {
+    padding: 20px 10px 20px; /* セクション上下の余白を控えめに */
+  }
+  .card-wrap {
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .news-card {
+    width: 80%;
+    max-width: 640px;
+    flex-direction: row;  /* デスクトップ同様、横並び */
+  }
+  .news-card img {
+    width: 140px;
+    height: 140px;
+  }
+  .news-content {
+    padding: 16px;
+  }
+  .news-heading {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .news-text {
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+  .news-button {
+    font-size: 0.85rem;
+    padding: 7px 12px;
+  }
+  .access.wrapper {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .access .section-wrapper {
+    padding: 80px 20px 60px; /* Sektion上下パディング縮小 */
+  }
+
+  /* 見出し */
+  .access__title {
+    font-size: 2.2rem;
+    margin-bottom: 32px;
+  }
+  .access__title::after {
+    height: 3px;
+    margin-top: 8px;
+  }
+
+  /* 横並びは維持。ただし幅を調整 */
+  .access__flex {
+    gap: 24px;
+    flex-wrap: wrap;      /* 幅が狭い場合は折り返し対応 */
+  }
+  .access__info {
+    flex: 1 1 200px;
+    max-width: 280px;
+  }
+  .access__list dt {
+    font-size: 0.95rem;
+    margin-top: 12px;
+  }
+  .access__list dd {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .access__map {
+    flex: 1 1 200px;
+    max-width: 320px;
+  }
+  .access__map iframe {
+    height: 200px;       /* タブレットでは少し小さめ */
+    border-radius: 5px;
+  }
+  #footer {
+    padding: 30px 16px;
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;          /* カラムを折り返し可能に */
+    justify-content: center;
+    gap: 6px;
+  }
+  .footer-col {
+    flex: 1 1 45%;             /* 横2列レイアウト */
+    max-width: 45%;
+    min-width: 240px;
+  }
+   /* カラム①：ロゴ + コピーライト */
+  .footer-col--logo {
+    margin-top: 25px;
+   
+  }
+  .footer-logo-text {
+    font-size: 1.2rem;
+  }
+  .footer-copy {
+    font-size: 0.7rem;
+    margin-top: 12px;
+  }
+/* カラム②：住所・連絡先 */
+  .footer-col--info {
+    margin: 0;
+    padding-top: 24px;
+    font-size: 0.6rem;
+    align-items: flex-start;
+  }
+  .footer-col--info p {
+    font-size: 0.6rem;
+    margin-bottom: 8px;
+  }
+  .footer-col--info p svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+  /* カラム③：フッターメニュー */
+  .footer-col--nav {
+    margin: 0;
+    align-items: flex-start;
+  }
+  .footer-menu {
+    flex-direction: column;
+    margin-left: 10px;
+  }
+  .footer-menu li a {
+    font-size: 0.7rem;
+    margin-bottom: 6px;
+  }
+/* カラム④：SNSリンク */
+  .footer-col--social {
+    margin: 0;
+    align-items: flex-start;
+  }
+  .footer-social li a {
+    font-size: 0.7rem;
+  }
+  .footer-social svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .burgers-page__title {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+  .burgers-page__title::after {
+    height: 3px;
+    margin-top: 8px;
+  }
+
+  .burgers-page__grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  .burger-item {
+    max-width: 200px;
+  }
+  .burger-item__img-wrapper {
+    padding-top: 80%;
+  }
+  .burger-item__name {
+    font-size: 1.05rem;
+    margin: 10px 0 4px;
+  }
+  .burger-item__price {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  .goods__grid {
+    display: block;
+  }
+  .goods__item,
+  .goods__text {
+    margin-bottom: 40px;
+  }
+  .goods__text {
+    font-size: 1rem;
+  }
+  .contact {
+    padding: 60px 15px; /* 上下60px、左右15pxに変更 */
+  }
+
+  /* 見出しフォントサイズを少し落とす */
+  .contact h2 {
+    font-size: 30px;
+    margin-bottom: 6px;
+  }
+
+  /* サブタイトルも小さめに */
+  .contact p.subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  /* フォームラッパーの幅を画面いっぱいに近づける */
+  .contact .form-wrapper {
+    max-width: 100%;
+    padding: 0 10px; /* フォーム内左右に余白10pxずつ追加 */
+    margin: 0 auto;
+  }
+
+  /* ラベル文字を少し小さく */
+  .contact label {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  /* 入力欄全体の文字サイズとパディングを縮小 */
+  .contact input[type="text"],
+  .contact input[type="email"],
+  .contact textarea {
+    font-size: 14px;
+    padding: 12px 16px; /* 上下12px、左右16px */
+    margin-bottom: 20px;
+  }
+
+  /* テキストエリア最小高さをやや縮小（必要に応じて） */
+  .contact textarea {
+    min-height: 140px;
+  }
+
+  /* ボタンの文字サイズ・パディングを調整 */
+  .contact button[type="submit"] {
+    font-size: 16px;
+    padding: 14px 0; /* 上下14pxに縮小 */
+  }
+}
+/* -----------------------------------
+   画面幅768px以上かつ1024px以下での調整
+----------------------------------- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* CONTACTセクションの上下余白を少し縮める */
+  .contact {
+    padding: 70px 25px; /* 上下70px、左右25px */
+  }
+
+  /* 見出し（CONTACT）のサイズ調整 */
+  .contact h2 {
+    font-size: 32px;   /* 通常の36pxから少し小さめ */
+    margin-bottom: 8px;
+  }
+
+  /* サブタイトル（なんでもお問い合わせください）のサイズ調整 */
+  .contact p.subtitle {
+    font-size: 15px;   /* 通常の16pxから1px落とす */
+    margin-bottom: 36px;
+  }
+
+  /* フォーム全体を包むラッパー幅を調整 */
+  .contact .form-wrapper {
+    max-width: 550px;      /* 通常の600pxから少し狭め */
+    margin: 0 auto;        /* 中央寄せのまま */
+    padding: 0 15px;       /* 左右に15pxずつ余白を追加 */
+    text-align: left;
+  }
+
+  /* ラベル文字サイズを少し微調整 */
+  .contact label {
+    font-size: 17px;   /* 通常の18pxから1px落とす */
+    margin-bottom: 8px;
+  }
+
+  /* テキスト入力欄・メール欄・件名欄 */
+  .contact input[type="text"],
+  .contact input[type="email"],
+  .contact textarea {
+    font-size: 15px;       /* 通常の16pxより少し落とす */
+    padding: 13px 17px;    /* 通常の14px 18px から 1pxずつ縮める */
+    margin-bottom: 22px;   /* 通常の24pxから少し狭める */
+  }
+
+  /* テキストエリア最小高さを微調整 */
+  .contact textarea {
+    min-height: 150px;     /* 通常の160pxから若干縮小 */
+    line-height: 1.5;
+  }
+
+  /* 送信ボタン */
+  .contact button[type="submit"] {
+    font-size: 17px;       /* 通常の18pxから1px落とす */
+    padding: 15px 0;       /* 上下15pxに調整 */
+    border-radius: 6px;
+    /* width: 100% はそのまま保持 */
+  }
+
+  /* ボタンのホバー時に問題が起きないように transition はそのまま保持 */
+  .contact button[type="submit"]:hover {
+    background-color: #444;
+  }
+}
+

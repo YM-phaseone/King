@@ -1,0 +1,338 @@
+@charset "UTF-8";
+
+/*──────────────────────────────────────────────────
+  下層ページ専用の追加スタイル
+  ※既存の style.css をベースに必要な部分だけ上書き／追加するイメージ
+──────────────────────────────────────────────────*/
+
+.burgers-page__title {
+  font-family: "Oswald", "Space Grotesk", sans-serif;
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto 40px; /* 下に余白を取る */
+  color: #111;
+  position: relative;
+  --underline-progress: 0;
+}
+.burgers-page__title::after {
+  content: "";
+  display: block;
+  width: calc(var(--underline-progress) * 100%);
+  height: 4px;
+  background-color: #9f7916;
+  margin: 10px auto 0;
+  transition: width 0.2s ease;
+}
+/* is-active で下線を 50% 表示 */
+.burgers-page__title.is-active::after {
+  width: 50%;
+}
+
+/* ────────────────────────────────────────────────
+   BURGERS グリッドレイアウト
+──────────────────────────────────────────────── */
+.burgers-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  /* 最小幅240px、余裕があれば増やしていく */
+  gap: 30px;
+  justify-items: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 920px; /* 中央寄せと最大幅を指定 */
+}
+
+/* 各バーガーアイテム */
+.burger-item {
+  background-color: #fafafa;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 240px;
+}
+.burger-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 画像ラッパー */
+.burger-item__img-wrapper {
+  width: 100%;
+  height: 0;
+  padding-top: 75%;
+  /* 4:3 の縦横比を想定 */
+  position: relative;
+  overflow: hidden;
+}
+.burger-item__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* 名前・価格 */
+.burger-item__name {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 12px 0 4px;
+}
+.burger-item__price {
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #9f7916;
+  margin-bottom: 12px;
+}
+
+/* ===================================
+   GOODS セクション用スタイル
+   =================================== */
+
+/* セクション全体の余白設定 */
+.goods.wrapper {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* セクションタイトル */
+.goods__title {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222; /* お好みで調整 */
+}
+
+/* グリッド全体 */
+.goods__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "item1 item2"
+    "item3 text";
+  grid-gap: 40px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* 各商品をグリッドエリアに配置 */
+.goods__item--1 {
+  grid-area: item1;
+}
+.goods__item--2 {
+  grid-area: item2;
+}
+.goods__item--3 {
+  grid-area: item3;
+}
+
+/* 商品テキストエリア */
+.goods__text {
+  grid-area: text;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  text-align: left;
+  color: #222; /* お好みで調整 */
+}
+
+/* 商品アイテム共通 */
+.goods__item {
+  text-align: center;
+}
+
+/* 画像ラッパー */
+.goods__img-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 商品画像 */
+.goods__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px; /* お好みで */
+}
+
+/* 商品名 */
+.goods__name {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* 価格 */
+.goods__price {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ───────── CONTACT セクション ───────── */
+.contact {
+  /* ゴールド系の背景色。テクスチャ画像がある場合は以下コメントを外し、パスを正しく指定 */
+  /* background-color: #b79030; */
+  /* 例：背景にテクスチャ画像を敷きたい場合
+  background: url("../img/texture-gold.jpg") center center/cover no-repeat;
+  */
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.contact p.subtitle {
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+/* フォーム全体を中央寄せ */
+.contact .form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* ラベル */
+.contact label {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+/* テキスト入力（お名前・件名など）とテキストエリア */
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 16px;
+  margin-bottom: 24px;
+  resize: vertical; /* テキストエリアのみ縦にリサイズ可 */
+}
+
+/* プレースホルダーの文字色 */
+.contact input::placeholder,
+.contact textarea::placeholder {
+  color: #b79030;
+}
+
+/* テキストエリアの高さ調整 */
+.contact textarea {
+  min-height: 160px;
+  line-height: 1.5;
+}
+
+/* 送信ボタン */
+.contact button[type="submit"] {
+  display: block;
+  width: 100%;
+  background-color: #222;
+  color: #b79030;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 16px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button[type="submit"]:hover {
+  background-color: #444;
+}
+
+
+
+
+
+/* ───────────────────────────────────────────────── 
+   トップレベル：カウンター式「第1条〜」用
+───────────────────────────────────────────────── */
+ol.privacy__ol {
+  counter-reset: article;
+  list-style: none;    /* リセットの上書き */
+  padding-left: 1rem;  /* 左余白 */
+  padding-right: 1rem; /* 右余白 */
+}
+
+ol.privacy__ol > li {
+  counter-increment: article;
+  margin-bottom: 1.5rem;
+  position: relative;  /* ::before 用に相対位置を確保 */
+}
+
+.privacy__list {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.1rem;
+  padding-left: 4rem;
+  padding-right: 1rem;
+  margin: 2rem 0 1rem;
+}
+
+.privacy__list::before {
+  content: "第" counter(article) "条";
+  position: absolute;
+  left: 0;
+}
+
+/* ───────────────────────────────────────────────── 
+   サブリスト：通常のリストに戻す
+───────────────────────────────────────────────── */
+ol.privacy__sublist {
+  /* counter-* は不要 */
+  list-style: decimal inside !important;     /* 強制上書き */
+  list-style-position: inside !important;   /* 内側にマーカー */
+  margin: 0.5rem 0 1rem 2rem;
+  padding-left: 0;
+}
+
+ol.privacy__sublist > li {
+  margin-bottom: 0.5rem;
+  display: list-item !important;
+}
+ul.privacy__sublist__2 {
+  /* counter-* は不要 */
+  list-style: square inside !important;     /* 強制上書き */
+  list-style-position: inside !important;   /* 内側にマーカー */
+  margin: 0.5rem 0 1rem 2rem;
+  padding-left: 0;
+}
+
+ul.privacy__sublist__2 > li {
+  margin-bottom: 0.5rem;
+  display: list-item !important;
+}
+
+/* 見出し直後の段落調整 */
+.privacy__list + p {
+  margin-top: 1rem;
+}
+
+
+
+
